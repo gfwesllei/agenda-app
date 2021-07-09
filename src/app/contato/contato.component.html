@@ -4,10 +4,17 @@
     </mat-toolbar>
 </p>
 
-<form>
+<form [formGroup]="formulario" (ngSubmit)="submite()">
     <mat-form-field class="full-width">
         <mat-label>Nome:</mat-label>
-        <input matInput placeholder="Digite seu nome"/>
+        <input formControlName="nome" matInput placeholder="Digite seu nome"/>
     </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Email:</mat-label>
+      <input formControlName="email" matInput placeholder="Digite seu email"/>
+  </mat-form-field>
+ 
+  <button [disabled]="!formulario.valid" mat-button color="primary">Salvar</button>
+    
 </form>
   
